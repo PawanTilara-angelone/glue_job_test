@@ -1,0 +1,38 @@
+{
+  "name" : "test_job_initial",
+  "description" : "",
+  "role" : "arn:aws:iam::732165046977:role/glue-pyspark-role",
+  "executionProperty" : {
+    "maxConcurrentRuns" : 1
+  },
+  "command" : {
+    "name" : "glueetl",
+    "scriptLocation" : "s3://aws-glue-assets-732165046977-ap-south-1/scripts/test_job_initial.py",
+    "pythonVersion" : "3"
+  },
+  "defaultArguments" : {
+    "--enable-metrics" : "true",
+    "--enable-spark-ui" : "true",
+    "--spark-event-logs-path" : "s3://aws-glue-assets-732165046977-ap-south-1/sparkHistoryLogs/",
+    "--enable-job-insights" : "true",
+    "--enable-glue-datacatalog" : "true",
+    "--enable-continuous-cloudwatch-log" : "true",
+    "--job-bookmark-option" : "job-bookmark-enable",
+    "--job-language" : "python",
+    "--TempDir" : "s3://aws-glue-assets-732165046977-ap-south-1/temporary/"
+  },
+  "maxRetries" : 3,
+  "allocatedCapacity" : 10,
+  "timeout" : 2880,
+  "maxCapacity" : 10.0,
+  "glueVersion" : "3.0",
+  "numberOfWorkers" : 10,
+  "workerType" : "G.1X",
+  "executionClass" : "STANDARD",
+  "sourceControlDetails" : {
+    "provider" : "GITHUB",
+    "repository" : "glue_job_test",
+    "branch" : "develop",
+    "folder" : "test_job_initial"
+  }
+}
